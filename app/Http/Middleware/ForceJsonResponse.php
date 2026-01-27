@@ -9,7 +9,12 @@ class ForceJsonResponse
 {
     public function handle(Request $request, Closure $next)
     {
+        if ($request->is('api/exports/*')) {
+            return $next($request);
+        }
+
         $request->headers->set('Accept', 'application/json');
+
         return $next($request);
     }
 }

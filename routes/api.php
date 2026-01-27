@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\GameController;
+use App\Http\Controllers\Api\ExportController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -13,3 +14,4 @@ Route::get('/games/{game:slug}', [GameController::class, 'show']);
 Route::post('/games', [GameController::class, 'store']);
 Route::put('/games/{game:slug}', [GameController::class, 'update']);
 Route::delete('/games/{game:slug}', [GameController::class, 'destroy']);
+Route::get('/exports/games.xml', [ExportController::class, 'games']);
