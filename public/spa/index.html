@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Žaidimų tinklas</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Orbitron', sans-serif; }
+    .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+    .card-hover:hover { transform: scale(1.03); box-shadow: 0 0 25px rgba(0,255,255,0.5); }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .animate-fade-in { animation: fade-in 0.4s; }
+  </style>
+</head>
+
+<body class="bg-[#0d0d0d] text-white scroll-smooth min-h-screen flex flex-col">
+
+  <!-- Header (tas pats vaizdas kaip Blade layout) -->
+  <header class="bg-gradient-to-r from-[#1a1a1a] to-[#111] shadow-lg p-4 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-50 border-b border-[#2c2c2c]">
+    <div class="flex items-center gap-3">
+      <a href="/" class="text-3xl font-bold text-[#00ffff] tracking-wide">
+        Žaidimų tinklas
+      </a>
+    </div>
+
+    <!-- Paieška -->
+    <form id="searchForm" class="max-w-md mx-auto w-full">
+      <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Ieškoti</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+        </div>
+
+        <input type="search" id="default-search"
+          class="block w-full p-4 ps-10 text-sm text-cyan-200 border border-[#222] rounded-lg bg-[#181818] focus:ring-[#00ffff] focus:border-[#00ffff] placeholder-cyan-400"
+          placeholder="Ieškoti žaidimo..." />
+
+        <button type="submit"
+          class="text-black absolute end-2.5 bottom-2.5 bg-[#00ffff] hover:bg-cyan-400 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-4 py-2 transition">
+          Ieškoti
+        </button>
+      </div>
+    </form>
+
+    <!-- “Avatar” (paliktas kaip dizaino elementas) -->
+    <div class="relative flex items-center gap-4">
+      <a href="#" class="w-10 h-10 rounded-full cursor-pointer bg-[#222] flex items-center justify-center text-2xl text-[#00ffff]" title="Paskyra">
+        👤
+      </a>
+
+      <!-- Cart icon (dizainas) -->
+      <a href="#" class="relative group ml-1">
+        <svg class="w-8 h-8 text-[#00ffff] hover:text-cyan-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 0 0 7.5 19h9a2 2 0 0 0 1.85-2.3L17 13M7 13V6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v7" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- VIEW: HOME -->
+    <div id="view-home" class="animate-fade-in">
+      <!-- Hero (tas pats kaip home.blade) -->
+      <section class="relative overflow-hidden pt-20 pb-24 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 blur-3xl"></div>
+        <div class="relative w-full max-w-4xl mx-auto">
+          <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+              <div class="duration-700 ease-in-out" data-carousel-item>
+                <img src="/images/carousel/1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 1">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/images/carousel/2.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 2">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/images/carousel/3.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 3">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/images/carousel/4.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 4">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/images/carousel/5.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 5">
+              </div>
+            </div>
+
+            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+              <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="0"></button>
+              <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="1"></button>
+              <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="2"></button>
+              <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="3"></button>
+              <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="4"></button>
+            </div>
+
+            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+              </span>
+            </button>
+
+            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nauji žaidimai -->
+      <section class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold mb-6 text-[#00ffff]">Nauji žaidimai</h2>
+        <div id="home-new-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+        <div class="flex justify-center mt-8">
+          <a href="/games" data-link class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
+        </div>
+      </section>
+
+      <!-- Populiariausi žaidimai -->
+      <section class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold mb-6 text-[#00ffff]">Populiariausi žaidimai</h2>
+        <div id="home-pop-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+        <div class="flex justify-center mt-8">
+          <a href="/games" data-link class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: GAMES LIST -->
+    <div id="view-games" class="hidden animate-fade-in">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold mb-6 text-[#00ffff]">Žaidimų sąrašas</h2>
+
+        <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+
+        <div class="flex justify-center mt-10 gap-4 items-center">
+          <button id="btn-prev" class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+            Atgal
+          </button>
+          <div id="games-page" class="text-gray-300"></div>
+          <button id="btn-next" class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+            Toliau
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW: GAME DETAIL -->
+    <div id="view-game" class="hidden animate-fade-in">
+      <div class="max-w-5xl mx-auto px-4 py-10">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-2/3">
+            <img id="game-img" src="" alt="" class="hidden w-full max-h-[500px] object-cover rounded shadow mb-6" />
+            <h1 id="game-title" class="text-3xl font-bold mb-4 text-[#00ffff]"></h1>
+            <div id="game-desc" class="mb-4 text-gray-300 leading-relaxed"></div>
+          </div>
+
+          <div class="md:w-1/3 bg-[#181818] rounded-lg p-6 shadow flex flex-col gap-4">
+            <div>
+              <span class="text-gray-400">Platformos:</span>
+              <div id="game-platforms" class="text-white font-semibold"></div>
+            </div>
+
+            <div>
+              <span class="text-gray-400">Žanrai:</span>
+              <div id="game-genres" class="text-white font-semibold"></div>
+            </div>
+
+            <div>
+              <span class="text-gray-400">Kaina:</span>
+              <div id="game-price" class="text-[#00ffff] font-bold text-xl"></div>
+            </div>
+
+            <button class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+              Įdėti į krepšelį
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer (tas pats kaip layout) -->
+  <footer class="bg-[#1a1a1a] rounded-lg shadow-sm w-full mt-8">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="/" data-link class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Žaidimų tinklas</span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-300 sm:mb-0">
+          <li><a href="#" class="hover:underline me-4 md:me-6">Apie Žaidimų tinklą</a></li>
+          <li><a href="/" data-link class="hover:underline me-4 md:me-6">Pagrindinis puslapis</a></li>
+          <li><a href="#" class="hover:underline me-4 md:me-6">Pagalba</a></li>
+          <li><a href="#" class="hover:underline">Kontaktai</a></li>
+        </ul>
+      </div>
+      <hr class="my-6 border-[#333] sm:mx-auto lg:my-8" />
+      <span class="block text-sm text-gray-400 sm:text-center">
+        © 2025 <a href="#" class="hover:underline">Žaidimų tinklas™</a>. Visos teisės saugomos.
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+  <script>
+    const API = {
+      home: () => fetch('/api/home', { headers: { 'Accept': 'application/json' }}).then(r => r.json()),
+      games: (params) => {
+        const u = new URL(location.origin + '/api/games');
+        Object.entries(params || {}).forEach(([k,v]) => { if (v !== '' && v != null) u.searchParams.set(k, String(v)); });
+        return fetch(u.toString(), { headers: { 'Accept': 'application/json' }}).then(r => r.json());
+      },
+      game: (slug) => fetch('/api/games/' + encodeURIComponent(slug), { headers: { 'Accept': 'application/json' }}).then(r => r.json()),
+    };
+
+    const el = (id) => document.getElementById(id);
+
+    function imgSrc(img) {
+      if (!img) return '';
+      if (img.startsWith('http://') || img.startsWith('https://')) return img;
+      if (img.startsWith('/')) return img;
+      return '/' + img;
+    }
+
+    function escapeHtml(str) {
+      return (str ?? '').toString().replace(/[&<>"']/g, m => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[m]));
+    }
+
+    function showView(name) {
+      el('view-home').classList.toggle('hidden', name !== 'home');
+      el('view-games').classList.toggle('hidden', name !== 'games');
+      el('view-game').classList.toggle('hidden', name !== 'game');
+    }
+
+    function linkTo(href) {
+      history.pushState({}, '', href);
+      router();
+    }
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-link]');
+      if (!a) return;
+      e.preventDefault();
+      linkTo(a.getAttribute('href'));
+    });
+
+    // Search -> /games?q=...
+    el('searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = el('default-search').value.trim();
+      const u = new URL(location.origin + '/games');
+      if (q) u.searchParams.set('q', q);
+      linkTo(u.pathname + u.search);
+    });
+
+    // HOME render
+    function cardHtml(g, href) {
+      const platforms = (g.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : (g.platform ?? 'Nenurodyta');
+      const name = escapeHtml(g.name);
+      const price = escapeHtml(g.price);
+      const img = imgSrc(g.image);
+
+      return `
+        <a href="${href}" data-link class="bg-[#1a1a1a] border border-[#333] rounded-lg overflow-hidden card-hover block hover:shadow-lg transition transform hover:-translate-y-1">
+          <div class="w-full h-64 bg-black flex items-center justify-center">
+            ${img ? `<img src="${img}" alt="${name}" class="max-h-full max-w-full object-contain" loading="lazy" />` : ``}
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-bold text-[#00ffff] truncate">${name}</h4>
+            <p class="text-gray-400 text-sm mt-1">Platforma: ${escapeHtml(platforms)}</p>
+            <p class="text-gray-300 mt-1">Kaina: <span class="text-[#00ffff] font-semibold">${price} €</span></p>
+          </div>
+        </a>
+      `;
+    }
+
+    async function renderHome() {
+      showView('home');
+      const data = await API.home();
+
+      const newGrid = el('home-new-grid');
+      const popGrid = el('home-pop-grid');
+
+      const newGames = data.new_games || [];
+      const popGames = data.popular_games || [];
+
+      newGrid.innerHTML = newGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+      popGrid.innerHTML = popGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+    }
+
+    // GAMES list render (paginated)
+    let currentPage = 1;
+    let lastPage = 1;
+
+    async function renderGames() {
+      showView('games');
+
+      const url = new URL(location.href);
+      const q = url.searchParams.get('q') || '';
+      const page = parseInt(url.searchParams.get('page') || '1', 10);
+
+      el('default-search').value = q;
+
+      const res = await API.games({ q, per_page: 20, page });
+      const items = res.data || [];
+
+      currentPage = res.current_page || page;
+      lastPage = res.last_page || 1;
+
+      el('games-grid').innerHTML = items.map(g => (
+        `<a href="/${g.slug}" data-link class="block bg-[#181818] rounded-xl shadow-lg border border-[#2c2c2c] card-hover overflow-hidden">
+          <div class="w-full h-64 bg-black flex items-center justify-center">
+            ${g.image ? `<img src="${imgSrc(g.image)}" alt="${escapeHtml(g.name)}" class="max-h-full max-w-full object-contain" loading="lazy" />` : ``}
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-bold text-[#00ffff] truncate">${escapeHtml(g.name)}</h4>
+            <p class="text-gray-400 text-sm mt-1">
+              Platforma: ${(g.platforms && g.platforms.length) ? escapeHtml(g.platforms.map(p => p.name).join(', ')) : 'Nenurodyta'}
+            </p>
+            <p class="text-gray-300 mt-1">Kaina: <span class="text-[#00ffff] font-semibold">${escapeHtml(g.price)} €</span></p>
+          </div>
+        </a>`
+      )).join('');
+
+      el('games-page').textContent = `Puslapis ${currentPage} / ${lastPage}`;
+
+      el('btn-prev').disabled = currentPage <= 1;
+      el('btn-next').disabled = currentPage >= lastPage;
+    }
+
+    el('btn-prev').addEventListener('click', () => {
+      if (currentPage <= 1) return;
+      const u = new URL(location.href);
+      u.searchParams.set('page', String(currentPage - 1));
+      linkTo(u.pathname + u.search);
+    });
+
+    el('btn-next').addEventListener('click', () => {
+      if (currentPage >= lastPage) return;
+      const u = new URL(location.href);
+      u.searchParams.set('page', String(currentPage + 1));
+      linkTo(u.pathname + u.search);
+    });
+
+    // GAME detail render
+    async function renderGame(slug) {
+      showView('game');
+
+      const g = await API.game(slug);
+
+      el('game-title').textContent = g.name || '';
+      el('game-price').textContent = (g.price ?? '') + ' €';
+
+      const platforms = (g.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : 'Nenurodyta';
+      const genres = (g.genres && g.genres.length) ? g.genres.map(x => x.name).join(', ') : 'Nenurodyta';
+
+      el('game-platforms').textContent = platforms;
+      el('game-genres').textContent = genres;
+
+      const img = imgSrc(g.image || '');
+      const imgEl = el('game-img');
+      if (img) {
+        imgEl.src = img;
+        imgEl.alt = g.name || '';
+        imgEl.classList.remove('hidden');
+      } else {
+        imgEl.classList.add('hidden');
+      }
+
+      const desc = g.description ? g.description : 'Aprašymo nėra.';
+      el('game-desc').innerHTML = `<p>${escapeHtml(desc)}</p>`;
+    }
+
+    function router() {
+      const path = location.pathname;
+      const reserved = new Set(['', 'games', 'api', 'up']);
+
+      // / -> HOME
+      if (path === '/' || path === '') return renderHome();
+
+      // /games -> LIST
+      if (path === '/games') return renderGames();
+
+      // /games/<slug> (jei kažkur liko)
+      if (path.startsWith('/games/')) {
+        const slug = path.split('/').filter(Boolean)[1];
+        if (slug) return renderGame(slug);
+      }
+
+      // /<slug> -> DETAIL
+      const slug = path.replace('/', '');
+      if (slug && !reserved.has(slug)) return renderGame(slug);
+
+      // fallback
+      return renderHome();
+    }
+
+    window.addEventListener('popstate', router);
+    router();
+  </script>
+</body>
+</html>

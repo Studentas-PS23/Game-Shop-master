@@ -1,4 +1,12 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/{any}', function () {
+    return response()->file(public_path('spa/index.html'));
+})->where('any', '.*');
+
+
 /*
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
