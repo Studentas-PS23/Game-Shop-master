@@ -1,5 +1,5 @@
 <?php
-
+/*
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
@@ -39,3 +39,5 @@ require __DIR__.'/auth.php';
 Route::get('/dashboard', function () {
     return redirect()->route('profile');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+*/
