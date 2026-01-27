@@ -13,8 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // Jei nori, kad API visada būtų JSON (net kai naršyklė nesiunčia Accept):
-        // $middleware->api(append: \App\Http\Middleware\ForceJsonResponse::class);
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

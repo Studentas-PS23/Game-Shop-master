@@ -259,43 +259,58 @@
         <h2 class="text-2xl font-bold text-[#00ffff] mb-6">Paskyra</h2>
 
         <div id="account-auth-needed" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
-            <h3 class="text-xl font-bold mb-4">Prisijungimas</h3>
-            <form id="loginForm" class="space-y-3">
-              <input id="loginEmail" type="email" placeholder="El. paštas"
-                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
-              <input id="loginPassword" type="password" placeholder="Slaptažodis"
-                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
-              <button type="submit" class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
-                Prisijungti
-              </button>
-              <div id="loginMsg" class="text-sm text-gray-300"></div>
-            </form>
-          </div>
+  <!-- LOGIN -->
+  <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
+    <h3 class="text-xl font-bold mb-4">Prisijungimas</h3>
+    <form id="loginForm" class="space-y-3">
+      <input id="loginEmail" type="email" placeholder="El. paštas"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-          <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
-            <h3 class="text-xl font-bold mb-4">Registracija</h3>
-            <form id="registerForm" class="space-y-3">
-              <input id="regName" type="text" placeholder="Vardas"
-                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
-              <input id="regEmail" type="email" placeholder="El. paštas"
-                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
-              <input id="regPassword" type="password" placeholder="Slaptažodis"
-                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
-              <button type="submit" class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
-                Registruotis
-              </button>
-              <div id="registerMsg" class="text-sm text-gray-300"></div>
-            </form>
-          </div>
+      <input id="loginPassword" type="password" placeholder="Slaptažodis"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-          <div class="md:col-span-2 text-gray-400 text-sm">
-            Pastaba: šitos formos veiks tik jei turi API endpointus:
-            <span class="text-cyan-300">POST /api/auth/login</span>,
-            <span class="text-cyan-300">POST /api/auth/register</span>,
-            <span class="text-cyan-300">GET /api/me</span>.
-          </div>
-        </div>
+      <button type="submit"
+        class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+        Prisijungti
+      </button>
+
+      <div id="loginMsg" class="text-sm text-gray-300"></div>
+    </form>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
+    <h3 class="text-xl font-bold mb-4">Registracija</h3>
+    <form id="registerForm" class="space-y-3">
+      <input id="regName" type="text" placeholder="Vardas"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+
+      <input id="regEmail" type="email" placeholder="El. paštas"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+
+      <input id="regPassword" type="password" placeholder="Slaptažodis"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+
+      <input id="regPasswordConfirm" type="password" placeholder="Pakartok slaptažodį"
+        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+
+      <button type="submit"
+        class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+        Registruotis
+      </button>
+
+      <div id="registerMsg" class="text-sm text-gray-300"></div>
+    </form>
+  </div>
+
+  <div class="md:col-span-2 text-gray-400 text-sm">
+    Pastaba: šitos formos veiks tik jei turi API endpointus:
+    <span class="text-cyan-300">POST /api/auth/login</span>,
+    <span class="text-cyan-300">POST /api/auth/register</span>,
+    <span class="text-cyan-300">GET /api/me</span>.
+  </div>
+</div>
+
 
         <div id="account-logged-in" class="hidden">
           <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
@@ -342,302 +357,343 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
   <script>
-    // -------------------------
-    // API klientas
-    // -------------------------
-    function getToken() { return localStorage.getItem('auth_token') || ''; }
+  // -------------------------
+  // API klientas
+  // -------------------------
+  function getToken() { return localStorage.getItem('auth_token') || ''; }
 
-    function apiFetch(url, opts = {}) {
-      const headers = Object.assign({ 'Accept': 'application/json' }, opts.headers || {});
-      const token = getToken();
-      if (token) headers['Authorization'] = 'Bearer ' + token;
+  function apiFetch(url, opts = {}) {
+    const headers = Object.assign({ 'Accept': 'application/json' }, opts.headers || {});
+    const token = getToken();
+    if (token) headers['Authorization'] = 'Bearer ' + token;
 
-      return fetch(url, Object.assign({}, opts, { headers }));
+    return fetch(url, Object.assign({}, opts, { headers }));
+  }
+
+  async function apiJson(url, opts = {}) {
+    const r = await apiFetch(url, opts);
+    const text = await r.text();
+
+    let data = null;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch {
+      // jei serveris netyčia grąžino HTML
+      data = { message: text || 'Nežinomas atsakymas' };
     }
 
-    const API = {
-      home: () => apiFetch('/api/home').then(r => r.json()),
-      games: (params) => {
-        const u = new URL(location.origin + '/api/games');
-        Object.entries(params || {}).forEach(([k,v]) => { if (v !== '' && v != null) u.searchParams.set(k, String(v)); });
-        return apiFetch(u.toString()).then(r => r.json());
-      },
-      game: (slug) => apiFetch('/api/games/' + encodeURIComponent(slug)).then(r => r.json()),
-      // auth (jei turėsi)
-      me: () => apiFetch('/api/me').then(r => r.json()),
-      login: (payload) => apiFetch('/api/auth/login', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }).then(r => r.json()),
-      register: (payload) => apiFetch('/api/auth/register', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }).then(r => r.json()),
-      logout: () => apiFetch('/api/auth/logout', { method: 'POST' }).then(r => r.json()).catch(() => ({})),
-    };
-
-    const el = (id) => document.getElementById(id);
-
-    function imgSrc(img) {
-      if (!img) return '';
-      if (img.startsWith('http://') || img.startsWith('https://')) return img;
-      if (img.startsWith('/')) return img;
-      return '/' + img;
+    if (!r.ok) {
+      // meta klaidą su statusu ir json body
+      throw { status: r.status, data };
     }
 
-    function escapeHtml(str) {
-      return (str ?? '').toString().replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-      }[m]));
+    return data;
+  }
+
+  function extractErrorMessage(err) {
+    const data = err?.data;
+    if (!data) return 'Įvyko klaida.';
+
+    // Laravel validation: { message, errors: {field:[msg]} }
+    if (data.errors && typeof data.errors === 'object') {
+      const firstKey = Object.keys(data.errors)[0];
+      if (firstKey && Array.isArray(data.errors[firstKey]) && data.errors[firstKey][0]) {
+        return data.errors[firstKey][0];
+      }
     }
 
-    function showView(name) {
-      el('view-home').classList.toggle('hidden', name !== 'home');
-      el('view-games').classList.toggle('hidden', name !== 'games');
-      el('view-game').classList.toggle('hidden', name !== 'game');
-      el('view-cart').classList.toggle('hidden', name !== 'cart');
-      el('view-account').classList.toggle('hidden', name !== 'account');
-    }
+    if (data.message) return data.message;
+    return 'Įvyko klaida.';
+  }
 
-    function linkTo(href) {
-      history.pushState({}, '', href);
-      router();
-    }
+  const API = {
+    home: () => apiJson('/api/home'),
+    games: (params) => {
+      const u = new URL(location.origin + '/api/games');
+      Object.entries(params || {}).forEach(([k, v]) => {
+        if (v !== '' && v != null) u.searchParams.set(k, String(v));
+      });
+      return apiJson(u.toString());
+    },
+    game: (slug) => apiJson('/api/games/' + encodeURIComponent(slug)),
 
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('a[data-link]');
-      if (!a) return;
-      e.preventDefault();
-      linkTo(a.getAttribute('href'));
-    });
+    me: () => apiJson('/api/me'),
+    login: (payload) => apiJson('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }),
+    register: (payload) => apiJson('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }),
+    logout: () => apiJson('/api/auth/logout', { method: 'POST' }),
+  };
 
-    // -------------------------
-    // Search -> /games?q=...
-    // -------------------------
-    el('searchForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const q = el('default-search').value.trim();
-      const u = new URL(location.origin + '/games');
-      if (q) u.searchParams.set('q', q);
-      linkTo(u.pathname + u.search);
-    });
+  const el = (id) => document.getElementById(id);
 
-    // XML export (šalia paieškos)
-    el('btn-export-xml').addEventListener('click', () => {
-      const q = el('default-search').value.trim();
-      const u = new URL(location.origin + '/api/exports/games.xml');
-      if (q) u.searchParams.set('q', q); // jei nori eksportuoti pagal paiešką
-      window.location.href = u.toString();
-    });
+  function imgSrc(img) {
+    if (!img) return '';
+    if (img.startsWith('http://') || img.startsWith('https://')) return img;
+    if (img.startsWith('/')) return img;
+    return '/' + img;
+  }
 
-    // -------------------------
-    // Kortelės render
-    // -------------------------
-    function cardHtml(g, href) {
-      const platforms = (g.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : (g.platform ?? 'Nenurodyta');
-      const name = escapeHtml(g.name);
-      const price = escapeHtml(g.price);
-      const img = imgSrc(g.image);
+  function escapeHtml(str) {
+    return (str ?? '').toString().replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[m]));
+  }
 
-      return `
-        <a href="${href}" data-link class="bg-[#1a1a1a] border border-[#333] rounded-lg overflow-hidden card-hover block hover:shadow-lg transition transform hover:-translate-y-1">
-          <div class="w-full h-64 bg-black flex items-center justify-center">
-            ${img ? `<img src="${img}" alt="${name}" class="max-h-full max-w-full object-contain" loading="lazy" />` : ``}
-          </div>
-          <div class="p-4">
-            <h4 class="text-lg font-bold text-[#00ffff] truncate">${name}</h4>
-            <p class="text-gray-400 text-sm mt-1">Platforma: ${escapeHtml(platforms)}</p>
-            <p class="text-gray-300 mt-1">Kaina: <span class="text-[#00ffff] font-semibold">${price} €</span></p>
-          </div>
-        </a>
-      `;
-    }
+  function showView(name) {
+    el('view-home')?.classList.toggle('hidden', name !== 'home');
+    el('view-games')?.classList.toggle('hidden', name !== 'games');
+    el('view-game')?.classList.toggle('hidden', name !== 'game');
+    el('view-cart')?.classList.toggle('hidden', name !== 'cart');
+    el('view-account')?.classList.toggle('hidden', name !== 'account');
+  }
 
-    // -------------------------
-    // Home
-    // -------------------------
-    async function renderHome() {
-      showView('home');
+  function linkTo(href) {
+    history.pushState({}, '', href);
+    router();
+  }
 
-      const newGrid = el('home-new-grid');
-      const popGrid = el('home-pop-grid');
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-link]');
+    if (!a) return;
+    e.preventDefault();
+    linkTo(a.getAttribute('href'));
+  });
 
-      newGrid.innerHTML = '';
-      popGrid.innerHTML = '';
+  // -------------------------
+  // Search -> /games?q=...
+  // -------------------------
+  el('searchForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = el('default-search')?.value.trim() || '';
+    const u = new URL(location.origin + '/games');
+    if (q) u.searchParams.set('q', q);
+    linkTo(u.pathname + u.search);
+  });
 
-      const data = await API.home();
-      const newGames = data.new_games || [];
-      const popGames = data.popular_games || [];
+  // XML export
+  el('btn-export-xml')?.addEventListener('click', () => {
+    const q = el('default-search')?.value.trim() || '';
+    const u = new URL(location.origin + '/api/exports/games.xml');
+    if (q) u.searchParams.set('q', q);
+    window.location.href = u.toString();
+  });
 
-      newGrid.innerHTML = newGames.map(g => cardHtml(g, '/' + g.slug)).join('');
-      popGrid.innerHTML = popGames.map(g => cardHtml(g, '/' + g.slug)).join('');
-    }
+  // -------------------------
+  // Kortelės render
+  // -------------------------
+  function cardHtml(g, href) {
+    const platforms = (g.platforms && g.platforms.length)
+      ? g.platforms.map(p => p.name).join(', ')
+      : (g.platform ?? 'Nenurodyta');
 
-    // -------------------------
-    // Games list (paginate)
-    // -------------------------
-    let currentPage = 1;
-    let lastPage = 1;
+    const name = escapeHtml(g.name);
+    const price = escapeHtml(g.price);
+    const img = imgSrc(g.image);
 
-    async function renderGames() {
-      showView('games');
+    return `
+      <a href="${href}" data-link class="bg-[#1a1a1a] border border-[#333] rounded-lg overflow-hidden card-hover block hover:shadow-lg transition transform hover:-translate-y-1">
+        <div class="w-full h-64 bg-black flex items-center justify-center">
+          ${img ? `<img src="${img}" alt="${name}" class="max-h-full max-w-full object-contain" loading="lazy" />` : ``}
+        </div>
+        <div class="p-4">
+          <h4 class="text-lg font-bold text-[#00ffff] truncate">${name}</h4>
+          <p class="text-gray-400 text-sm mt-1">Platforma: ${escapeHtml(platforms)}</p>
+          <p class="text-gray-300 mt-1">Kaina: <span class="text-[#00ffff] font-semibold">${price} €</span></p>
+        </div>
+      </a>
+    `;
+  }
 
-      const url = new URL(location.href);
-      const q = url.searchParams.get('q') || '';
-      const page = parseInt(url.searchParams.get('page') || '1', 10);
+  // -------------------------
+  // Home
+  // -------------------------
+  async function renderHome() {
+    showView('home');
 
-      el('default-search').value = q;
+    const newGrid = el('home-new-grid');
+    const popGrid = el('home-pop-grid');
+    if (newGrid) newGrid.innerHTML = '';
+    if (popGrid) popGrid.innerHTML = '';
 
-      const res = await API.games({ q, per_page: 20, page });
+    const data = await API.home();
+    const newGames = data?.new_games || [];
+    const popGames = data?.popular_games || [];
 
-      const items = res.data || res || [];
-      currentPage = res.current_page || page;
-      lastPage = res.last_page || 1;
+    if (newGrid) newGrid.innerHTML = newGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+    if (popGrid) popGrid.innerHTML = popGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+  }
 
-      el('games-grid').innerHTML = items.map(g => cardHtml(g, '/' + g.slug)).join('');
-      el('games-page').textContent = `Puslapis ${currentPage} / ${lastPage}`;
+  // -------------------------
+  // Games list
+  // -------------------------
+  let currentPage = 1;
+  let lastPage = 1;
 
-      const total = res.total != null ? res.total : items.length;
-      el('games-meta').textContent = `Rasta: ${total}`;
+  async function renderGames() {
+    showView('games');
 
-      el('btn-prev').classList.toggle('btn-disabled', currentPage <= 1);
-      el('btn-next').classList.toggle('btn-disabled', currentPage >= lastPage);
-    }
+    const url = new URL(location.href);
+    const q = url.searchParams.get('q') || '';
+    const page = parseInt(url.searchParams.get('page') || '1', 10);
 
-    el('btn-prev').addEventListener('click', () => {
-      if (currentPage <= 1) return;
-      const u = new URL(location.href);
-      u.searchParams.set('page', String(currentPage - 1));
-      linkTo(u.pathname + u.search);
-    });
+    if (el('default-search')) el('default-search').value = q;
 
-    el('btn-next').addEventListener('click', () => {
-      if (currentPage >= lastPage) return;
-      const u = new URL(location.href);
-      u.searchParams.set('page', String(currentPage + 1));
-      linkTo(u.pathname + u.search);
-    });
+    const res = await API.games({ q, per_page: 20, page });
 
-    // -------------------------
-    // Game detail + Add to cart
-    // -------------------------
-    let currentGame = null;
+    const items = res?.data || res || [];
+    currentPage = res?.current_page || page;
+    lastPage = res?.last_page || 1;
 
-    async function renderGame(slug) {
-      showView('game');
+    if (el('games-grid')) el('games-grid').innerHTML = items.map(g => cardHtml(g, '/' + g.slug)).join('');
+    if (el('games-page')) el('games-page').textContent = `Puslapis ${currentPage} / ${lastPage}`;
 
-      const g = await API.game(slug);
-      currentGame = g;
+    const total = res?.total != null ? res.total : items.length;
+    if (el('games-meta')) el('games-meta').textContent = `Rasta: ${total}`;
 
-      el('game-title').textContent = g.name || '';
-      el('game-price').textContent = (g.price ?? '') + ' €';
+    el('btn-prev')?.classList.toggle('btn-disabled', currentPage <= 1);
+    el('btn-next')?.classList.toggle('btn-disabled', currentPage >= lastPage);
+  }
 
-      const platforms = (g.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : 'Nenurodyta';
-      const genres = (g.genres && g.genres.length) ? g.genres.map(x => x.name).join(', ') : 'Nenurodyta';
+  el('btn-prev')?.addEventListener('click', () => {
+    if (currentPage <= 1) return;
+    const u = new URL(location.href);
+    u.searchParams.set('page', String(currentPage - 1));
+    linkTo(u.pathname + u.search);
+  });
 
-      el('game-platforms').textContent = platforms;
-      el('game-genres').textContent = genres;
+  el('btn-next')?.addEventListener('click', () => {
+    if (currentPage >= lastPage) return;
+    const u = new URL(location.href);
+    u.searchParams.set('page', String(currentPage + 1));
+    linkTo(u.pathname + u.search);
+  });
 
-      const img = imgSrc(g.image || '');
-      const imgEl = el('game-img');
+  // -------------------------
+  // Game detail
+  // -------------------------
+  let currentGame = null;
+
+  async function renderGame(slug) {
+    showView('game');
+
+    const g = await API.game(slug);
+    currentGame = g;
+
+    if (el('game-title')) el('game-title').textContent = g?.name || '';
+    if (el('game-price')) el('game-price').textContent = (g?.price ?? '') + ' €';
+
+    const platforms = (g?.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : 'Nenurodyta';
+    const genres = (g?.genres && g.genres.length) ? g.genres.map(x => x.name).join(', ') : 'Nenurodyta';
+
+    if (el('game-platforms')) el('game-platforms').textContent = platforms;
+    if (el('game-genres')) el('game-genres').textContent = genres;
+
+    const img = imgSrc(g?.image || '');
+    const imgEl = el('game-img');
+    if (imgEl) {
       if (img) {
         imgEl.src = img;
-        imgEl.alt = g.name || '';
+        imgEl.alt = g?.name || '';
         imgEl.classList.remove('hidden');
       } else {
         imgEl.classList.add('hidden');
       }
-
-      const desc = g.description ? g.description : 'Aprašymo nėra.';
-      el('game-desc').innerHTML = `<p>${escapeHtml(desc)}</p>`;
     }
 
-    // -------------------------
-    // Cart (localStorage)
-    // -------------------------
-    function getCart() {
-      try { return JSON.parse(localStorage.getItem('cart') || '[]'); }
-      catch { return []; }
+    const desc = g?.description ? g.description : 'Aprašymo nėra.';
+    if (el('game-desc')) el('game-desc').innerHTML = `<p>${escapeHtml(desc)}</p>`;
+  }
+
+  // -------------------------
+  // Cart (localStorage)
+  // -------------------------
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem('cart') || '[]'); }
+    catch { return []; }
+  }
+
+  function setCart(items) {
+    localStorage.setItem('cart', JSON.stringify(items || []));
+    updateCartBadge();
+  }
+
+  function cartCount() {
+    return getCart().reduce((sum, it) => sum + (it.qty || 0), 0);
+  }
+
+  function updateCartBadge() {
+    const badge = el('cart-badge');
+    if (!badge) return;
+    const count = cartCount();
+    if (count > 0) {
+      badge.textContent = String(count);
+      badge.classList.remove('hidden');
+    } else {
+      badge.classList.add('hidden');
+    }
+  }
+
+  function addToCart(game) {
+    if (!game || !game.id) return;
+
+    const cart = getCart();
+    const idx = cart.findIndex(x => x.id === game.id);
+
+    if (idx >= 0) cart[idx].qty = (cart[idx].qty || 1) + 1;
+    else cart.push({ id: game.id, slug: game.slug, name: game.name, price: Number(game.price || 0), image: game.image || '', qty: 1 });
+
+    setCart(cart);
+  }
+
+  function removeFromCart(id) {
+    setCart(getCart().filter(x => x.id !== id));
+  }
+
+  function changeQty(id, qty) {
+    const cart = getCart();
+    const idx = cart.findIndex(x => x.id === id);
+    if (idx < 0) return;
+    cart[idx].qty = Math.max(1, qty);
+    setCart(cart);
+  }
+
+  function cartTotal() {
+    return getCart().reduce((sum, it) => sum + (Number(it.price || 0) * Number(it.qty || 0)), 0);
+  }
+
+  el('btn-add-to-cart')?.addEventListener('click', () => {
+    addToCart(currentGame);
+    linkTo('/cart');
+  });
+
+  el('btn-cart-clear')?.addEventListener('click', () => {
+    setCart([]);
+    renderCart();
+  });
+
+  function renderCart() {
+    showView('cart');
+
+    const cart = getCart();
+    const list = el('cart-list');
+
+    if (!cart.length) {
+      el('cart-empty')?.classList.remove('hidden');
+      if (list) list.innerHTML = '';
+      el('cart-summary')?.classList.add('hidden');
+      return;
     }
 
-    function setCart(items) {
-      localStorage.setItem('cart', JSON.stringify(items || []));
-      updateCartBadge();
-    }
+    el('cart-empty')?.classList.add('hidden');
 
-    function cartCount() {
-      return getCart().reduce((sum, it) => sum + (it.qty || 0), 0);
-    }
-
-    function updateCartBadge() {
-      const count = cartCount();
-      const badge = el('cart-badge');
-      if (count > 0) {
-        badge.textContent = String(count);
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
-    }
-
-    function addToCart(game) {
-      if (!game || !game.id) return;
-
-      const cart = getCart();
-      const idx = cart.findIndex(x => x.id === game.id);
-
-      if (idx >= 0) {
-        cart[idx].qty = (cart[idx].qty || 1) + 1;
-      } else {
-        cart.push({
-          id: game.id,
-          slug: game.slug,
-          name: game.name,
-          price: Number(game.price || 0),
-          image: game.image || '',
-          qty: 1,
-        });
-      }
-
-      setCart(cart);
-    }
-
-    function removeFromCart(id) {
-      const cart = getCart().filter(x => x.id !== id);
-      setCart(cart);
-    }
-
-    function changeQty(id, qty) {
-      const cart = getCart();
-      const idx = cart.findIndex(x => x.id === id);
-      if (idx < 0) return;
-      cart[idx].qty = Math.max(1, qty);
-      setCart(cart);
-    }
-
-    function cartTotal() {
-      return getCart().reduce((sum, it) => sum + (Number(it.price || 0) * Number(it.qty || 0)), 0);
-    }
-
-    el('btn-add-to-cart').addEventListener('click', () => {
-      addToCart(currentGame);
-      linkTo('/cart');
-    });
-
-    el('btn-cart-clear').addEventListener('click', () => {
-      setCart([]);
-      renderCart();
-    });
-
-    function renderCart() {
-      showView('cart');
-
-      const cart = getCart();
-      const list = el('cart-list');
-
-      if (!cart.length) {
-        el('cart-empty').classList.remove('hidden');
-        list.innerHTML = '';
-        el('cart-summary').classList.add('hidden');
-        return;
-      }
-
-      el('cart-empty').classList.add('hidden');
-
+    if (list) {
       list.innerHTML = cart.map(it => {
         const img = imgSrc(it.image || '');
         const subtotal = (Number(it.price || 0) * Number(it.qty || 0)).toFixed(2);
@@ -657,15 +713,12 @@
             </div>
 
             <div class="flex items-center gap-2">
-              <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition"
-                data-qty-dec="${it.id}">-</button>
+              <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition" data-qty-dec="${it.id}">-</button>
               <div class="w-10 text-center">${it.qty}</div>
-              <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition"
-                data-qty-inc="${it.id}">+</button>
+              <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition" data-qty-inc="${it.id}">+</button>
             </div>
 
-            <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-red-400 transition text-red-300"
-              data-remove="${it.id}">
+            <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-red-400 transition text-red-300" data-remove="${it.id}">
               Pašalinti
             </button>
           </div>
@@ -674,8 +727,7 @@
 
       list.querySelectorAll('[data-remove]').forEach(btn => {
         btn.addEventListener('click', () => {
-          const id = Number(btn.getAttribute('data-remove'));
-          removeFromCart(id);
+          removeFromCart(Number(btn.getAttribute('data-remove')));
           renderCart();
         });
       });
@@ -697,151 +749,136 @@
           renderCart();
         });
       });
-
-      el('cart-summary').classList.remove('hidden');
-      el('cart-total').textContent = cartTotal().toFixed(2) + ' €';
     }
 
-    // -------------------------
-    // Account (jei turi auth API)
-    // -------------------------
-    function setAuthToken(token) {
-      if (token) localStorage.setItem('auth_token', token);
-      else localStorage.removeItem('auth_token');
+    el('cart-summary')?.classList.remove('hidden');
+    if (el('cart-total')) el('cart-total').textContent = cartTotal().toFixed(2) + ' €';
+  }
+
+  // -------------------------
+  // Account
+  // -------------------------
+  function setAuthToken(token) {
+    if (token) localStorage.setItem('auth_token', token);
+    else localStorage.removeItem('auth_token');
+  }
+
+  async function renderAccount() {
+    showView('account');
+
+    const token = getToken();
+    const authNeeded = el('account-auth-needed');
+    const loggedIn = el('account-logged-in');
+
+    if (!token) {
+      authNeeded?.classList.remove('hidden');
+      loggedIn?.classList.add('hidden');
+      return;
     }
 
-    async function renderAccount() {
-      showView('account');
+    try {
+      const me = await API.me();
 
-      const token = getToken();
-      const authNeeded = el('account-auth-needed');
-      const loggedIn = el('account-logged-in');
+      authNeeded?.classList.add('hidden');
+      loggedIn?.classList.remove('hidden');
+
+      if (el('meName')) el('meName').textContent = me?.name || '(be vardo)';
+      if (el('meEmail')) el('meEmail').textContent = me?.email || '';
+      if (el('meMsg')) el('meMsg').textContent = '';
+    } catch (err) {
+      setAuthToken('');
+      authNeeded?.classList.remove('hidden');
+      loggedIn?.classList.add('hidden');
+    }
+  }
+
+  el('loginForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (el('loginMsg')) el('loginMsg').textContent = '';
+
+    const email = el('loginEmail')?.value.trim() || '';
+    const password = el('loginPassword')?.value || '';
+
+    try {
+      const res = await API.login({ email, password });
+      const token = res?.token || res?.access_token || '';
 
       if (!token) {
-        authNeeded.classList.remove('hidden');
-        loggedIn.classList.add('hidden');
+        if (el('loginMsg')) el('loginMsg').textContent = res?.message || 'Prisijungimas nepavyko.';
         return;
       }
 
-      // bandome pasiimti /api/me
-      try {
-        const me = await API.me();
-
-        // Jei API grąžina klaidą formatu {message: ...}, laikom, kad neautorizuota
-        if (!me || me.message || me.error) {
-          setAuthToken('');
-          authNeeded.classList.remove('hidden');
-          loggedIn.classList.add('hidden');
-          return;
-        }
-
-        authNeeded.classList.add('hidden');
-        loggedIn.classList.remove('hidden');
-
-        el('meName').textContent = me.name || '(be vardo)';
-        el('meEmail').textContent = me.email || '';
-        el('meMsg').textContent = '';
-
-      } catch (e) {
-        setAuthToken('');
-        authNeeded.classList.remove('hidden');
-        loggedIn.classList.add('hidden');
-      }
-    }
-
-    el('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      el('loginMsg').textContent = '';
-
-      const email = el('loginEmail').value.trim();
-      const password = el('loginPassword').value;
-
-      try {
-        const res = await API.login({ email, password });
-
-        // tikimasi { token: "...", user: {...} } arba { access_token: "..." }
-        const token = res.token || res.access_token || '';
-        if (!token) {
-          el('loginMsg').textContent = res.message || 'Prisijungimas nepavyko (nėra token).';
-          return;
-        }
-
-        setAuthToken(token);
-        linkTo('/account');
-      } catch {
-        el('loginMsg').textContent = 'Prisijungimas nepavyko.';
-      }
-    });
-
-    el('registerForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      el('registerMsg').textContent = '';
-
-      const name = el('regName').value.trim();
-      const email = el('regEmail').value.trim();
-      const password = el('regPassword').value;
-
-      try {
-        const res = await API.register({ name, email, password });
-
-        const token = res.token || res.access_token || '';
-        if (token) {
-          setAuthToken(token);
-          linkTo('/account');
-          return;
-        }
-
-        el('registerMsg').textContent = res.message || 'Registracija atlikta (jei API taip sukonfigūruota).';
-      } catch {
-        el('registerMsg').textContent = 'Registracija nepavyko.';
-      }
-    });
-
-    el('btn-logout').addEventListener('click', async () => {
-      el('meMsg').textContent = '';
-      try { await API.logout(); } catch {}
-      setAuthToken('');
+      setAuthToken(token);
       linkTo('/account');
-    });
+    } catch (err) {
+      if (el('loginMsg')) el('loginMsg').textContent = extractErrorMessage(err);
+    }
+  });
 
-    // -------------------------
-    // Router
-    // -------------------------
-    function router() {
-      const path = location.pathname;
-      const reserved = new Set(['', 'games', 'api', 'up', 'cart', 'account']);
+  el('registerForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (el('registerMsg')) el('registerMsg').textContent = '';
 
-      // / -> HOME
-      if (path === '/' || path === '') return renderHome();
+    const name = el('regName')?.value.trim() || '';
+    const email = el('regEmail')?.value.trim() || '';
+    const password = el('regPassword')?.value || '';
 
-      // /games -> LIST
-      if (path === '/games') return renderGames();
+    const confirmEl = el('regPasswordConfirm');
+    const password_confirmation = confirmEl ? (confirmEl.value || '') : '';
 
-      // /cart -> CART
-      if (path === '/cart') return renderCart();
+    try {
+      const res = await API.register({ name, email, password, password_confirmation });
 
-      // /account -> ACCOUNT
-      if (path === '/account') return renderAccount();
-
-      // /games/<slug> (jei kažkur liko)
-      if (path.startsWith('/games/')) {
-        const slug = path.split('/').filter(Boolean)[1];
-        if (slug) return renderGame(slug);
+      const token = res?.token || res?.access_token || '';
+      if (!token) {
+        if (el('registerMsg')) el('registerMsg').textContent = res?.message || 'Registracija nepavyko.';
+        return;
       }
 
-      // /<slug> -> DETAIL
-      const slug = path.replace('/', '');
-      if (slug && !reserved.has(slug)) return renderGame(slug);
+      setAuthToken(token);
+      linkTo('/account');
+    } catch (err) {
+      if (el('registerMsg')) el('registerMsg').textContent = extractErrorMessage(err);
+    }
+  });
 
-      // fallback
-      return renderHome();
+  el('btn-logout')?.addEventListener('click', async () => {
+    if (el('meMsg')) el('meMsg').textContent = '';
+
+    try { await API.logout(); } catch {}
+    setAuthToken('');
+    linkTo('/account');
+  });
+
+  // -------------------------
+  // Router
+  // -------------------------
+  function router() {
+    const path = location.pathname;
+    const reserved = new Set(['', 'games', 'api', 'up', 'cart', 'account']);
+
+    if (path === '/' || path === '') return renderHome();
+    if (path === '/games') return renderGames();
+    if (path === '/cart') return renderCart();
+    if (path === '/account') return renderAccount();
+
+    if (path.startsWith('/games/')) {
+      const slug = path.split('/').filter(Boolean)[1];
+      if (slug) return renderGame(slug);
     }
 
-    window.addEventListener('popstate', router);
+    const slug = path.replace('/', '');
+    if (slug && !reserved.has(slug)) return renderGame(slug);
 
-    // init
-    updateCartBadge();
-    router();
-  </script>
+    return renderHome();
+  }
+
+  window.addEventListener('popstate', router);
+
+  // init
+  updateCartBadge();
+  router();
+</script>
+
 </body>
 </html>
