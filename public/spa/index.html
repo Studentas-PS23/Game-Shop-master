@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="lt">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,22 +13,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Orbitron', sans-serif; }
-    .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
-    .card-hover:hover { transform: scale(1.03); box-shadow: 0 0 25px rgba(0,255,255,0.5); }
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    body {
+      font-family: 'Orbitron', sans-serif;
     }
-    .animate-fade-in { animation: fade-in 0.35s; }
-    .btn-disabled { opacity: 0.45; pointer-events: none; }
+
+    .card-hover {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.35s;
+    }
+
+    .btn-disabled {
+      opacity: 0.45;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body class="bg-[#0d0d0d] text-white scroll-smooth min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="bg-gradient-to-r from-[#1a1a1a] to-[#111] shadow-lg p-4 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-50 border-b border-[#2c2c2c]">
+  <header
+    class="bg-gradient-to-r from-[#1a1a1a] to-[#111] shadow-lg p-4 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-50 border-b border-[#2c2c2c]">
 
     <div class="flex items-center gap-3">
       <a href="/" data-link class="text-3xl font-bold text-[#00ffff] tracking-wide">
@@ -68,18 +94,22 @@
     <div class="relative flex items-center gap-4">
 
       <!-- Account -->
-      <a href="/account" data-link class="w-10 h-10 rounded-full cursor-pointer bg-[#222] flex items-center justify-center text-2xl text-[#00ffff]" title="Paskyra">
+      <a href="/account" data-link
+        class="w-10 h-10 rounded-full cursor-pointer bg-[#222] flex items-center justify-center text-2xl text-[#00ffff]"
+        title="Paskyra">
         👤
       </a>
 
       <!-- Cart -->
       <a href="/cart" data-link class="relative group ml-1" title="Krepšelis">
-        <svg class="w-8 h-8 text-[#00ffff] hover:text-cyan-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-8 h-8 text-[#00ffff] hover:text-cyan-400 transition" fill="none" stroke="currentColor"
+          stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 0 0 7.5 19h9a2 2 0 0 0 1.85-2.3L17 13M7 13V6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v7" />
         </svg>
 
-        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-[#00ffff] text-black text-xs font-bold rounded-full px-2 py-0.5">
+        <span id="cart-badge"
+          class="hidden absolute -top-2 -right-2 bg-[#00ffff] text-black text-xs font-bold rounded-full px-2 py-0.5">
           0
         </span>
       </a>
@@ -97,19 +127,29 @@
           <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
               <div class="duration-700 ease-in-out" data-carousel-item>
-                <img src="/images/carousel/1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 1">
+                <img src="/images/carousel/1.jpg"
+                  class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="Karuselė 1">
               </div>
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/images/carousel/2.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 2">
+                <img src="/images/carousel/2.jpg"
+                  class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="Karuselė 2">
               </div>
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/images/carousel/3.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 3">
+                <img src="/images/carousel/3.jpg"
+                  class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="Karuselė 3">
               </div>
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/images/carousel/4.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 4">
+                <img src="/images/carousel/4.jpg"
+                  class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="Karuselė 4">
               </div>
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/images/carousel/5.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Karuselė 5">
+                <img src="/images/carousel/5.jpg"
+                  class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="Karuselė 5">
               </div>
             </div>
 
@@ -121,19 +161,27 @@
               <button type="button" class="w-3 h-3 rounded-full" data-carousel-slide-to="4"></button>
             </div>
 
-            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+            <button type="button"
+              class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev>
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5 1 1 5l4 4" />
                 </svg>
                 <span class="sr-only">Previous</span>
               </span>
             </button>
 
-            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+            <button type="button"
+              class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next>
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 9 4-4-4-4" />
                 </svg>
                 <span class="sr-only">Next</span>
               </span>
@@ -146,7 +194,8 @@
         <h2 class="text-2xl font-bold mb-6 text-[#00ffff]">Nauji žaidimai</h2>
         <div id="home-new-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
         <div class="flex justify-center mt-8">
-          <a href="/games" data-link class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
+          <a href="/games" data-link
+            class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
         </div>
       </section>
 
@@ -154,7 +203,8 @@
         <h2 class="text-2xl font-bold mb-6 text-[#00ffff]">Populiariausi žaidimai</h2>
         <div id="home-pop-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
         <div class="flex justify-center mt-8">
-          <a href="/games" data-link class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
+          <a href="/games" data-link
+            class="px-8 py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">Rodyti viską</a>
         </div>
       </section>
     </div>
@@ -170,11 +220,13 @@
         <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
         <div class="flex justify-center mt-10 gap-4 items-center">
-          <button id="btn-prev" class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+          <button id="btn-prev"
+            class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
             Atgal
           </button>
           <div id="games-page" class="text-gray-300"></div>
-          <button id="btn-next" class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+          <button id="btn-next"
+            class="px-6 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
             Toliau
           </button>
         </div>
@@ -207,11 +259,13 @@
               <div id="game-price" class="text-[#00ffff] font-bold text-xl"></div>
             </div>
 
-            <button id="btn-add-to-cart" class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+            <button id="btn-add-to-cart"
+              class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
               Įdėti į krepšelį
             </button>
 
-            <a href="/cart" data-link class="w-full text-center py-3 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+            <a href="/cart" data-link
+              class="w-full text-center py-3 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
               Atidaryti krepšelį
             </a>
           </div>
@@ -225,10 +279,12 @@
         <div class="flex items-center justify-between flex-wrap gap-3">
           <h2 class="text-2xl font-bold text-[#00ffff]">Krepšelis</h2>
           <div class="flex gap-2">
-            <button id="btn-cart-clear" class="px-4 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
+            <button id="btn-cart-clear"
+              class="px-4 py-2 bg-[#181818] border border-[#2c2c2c] rounded hover:border-cyan-400 transition">
               Išvalyti
             </button>
-            <a href="/games" data-link class="px-4 py-2 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+            <a href="/games" data-link
+              class="px-4 py-2 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
               Tęsti pirkimą
             </a>
           </div>
@@ -259,57 +315,57 @@
         <h2 class="text-2xl font-bold text-[#00ffff] mb-6">Paskyra</h2>
 
         <div id="account-auth-needed" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-  <!-- LOGIN -->
-  <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
-    <h3 class="text-xl font-bold mb-4">Prisijungimas</h3>
-    <form id="loginForm" class="space-y-3">
-      <input id="loginEmail" type="email" placeholder="El. paštas"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+          <!-- LOGIN -->
+          <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-4">Prisijungimas</h3>
+            <form id="loginForm" class="space-y-3">
+              <input id="loginEmail" type="email" placeholder="El. paštas"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <input id="loginPassword" type="password" placeholder="Slaptažodis"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+              <input id="loginPassword" type="password" placeholder="Slaptažodis"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <button type="submit"
-        class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
-        Prisijungti
-      </button>
+              <button type="submit"
+                class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+                Prisijungti
+              </button>
 
-      <div id="loginMsg" class="text-sm text-gray-300"></div>
-    </form>
-  </div>
+              <div id="loginMsg" class="text-sm text-gray-300"></div>
+            </form>
+          </div>
 
-  <!-- REGISTER -->
-  <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
-    <h3 class="text-xl font-bold mb-4">Registracija</h3>
-    <form id="registerForm" class="space-y-3">
-      <input id="regName" type="text" placeholder="Vardas"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+          <!-- REGISTER -->
+          <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-4">Registracija</h3>
+            <form id="registerForm" class="space-y-3">
+              <input id="regName" type="text" placeholder="Vardas"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <input id="regEmail" type="email" placeholder="El. paštas"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+              <input id="regEmail" type="email" placeholder="El. paštas"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <input id="regPassword" type="password" placeholder="Slaptažodis"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+              <input id="regPassword" type="password" placeholder="Slaptažodis"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <input id="regPasswordConfirm" type="password" placeholder="Pakartok slaptažodį"
-        class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
+              <input id="regPasswordConfirm" type="password" placeholder="Pakartok slaptažodį"
+                class="w-full p-3 rounded bg-[#0f0f0f] border border-[#2c2c2c] focus:border-cyan-400 outline-none" />
 
-      <button type="submit"
-        class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
-        Registruotis
-      </button>
+              <button type="submit"
+                class="w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+                Registruotis
+              </button>
 
-      <div id="registerMsg" class="text-sm text-gray-300"></div>
-    </form>
-  </div>
+              <div id="registerMsg" class="text-sm text-gray-300"></div>
+            </form>
+          </div>
 
-  <div class="md:col-span-2 text-gray-400 text-sm">
-    Pastaba: šitos formos veiks tik jei turi API endpointus:
-    <span class="text-cyan-300">POST /api/auth/login</span>,
-    <span class="text-cyan-300">POST /api/auth/register</span>,
-    <span class="text-cyan-300">GET /api/me</span>.
-  </div>
-</div>
+          <div class="md:col-span-2 text-gray-400 text-sm">
+            Pastaba: šitos formos veiks tik jei turi API endpointus:
+            <span class="text-cyan-300">POST /api/auth/login</span>,
+            <span class="text-cyan-300">POST /api/auth/register</span>,
+            <span class="text-cyan-300">GET /api/me</span>.
+          </div>
+        </div>
 
 
         <div id="account-logged-in" class="hidden">
@@ -320,7 +376,8 @@
                 <div id="meName" class="text-xl font-bold text-white"></div>
                 <div id="meEmail" class="text-gray-300"></div>
               </div>
-              <button id="btn-logout" class="px-4 py-2 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+              <button id="btn-logout"
+                class="px-4 py-2 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
                 Atsijungti
               </button>
             </div>
@@ -357,147 +414,164 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
   <script>
-  // -------------------------
-  // API klientas
-  // -------------------------
-  function getToken() { return localStorage.getItem('auth_token') || ''; }
+    // -------------------------
+    // API klientas
+    // -------------------------
+    function getToken() { return localStorage.getItem('auth_token') || ''; }
 
-  function apiFetch(url, opts = {}) {
-    const headers = Object.assign({ 'Accept': 'application/json' }, opts.headers || {});
-    const token = getToken();
-    if (token) headers['Authorization'] = 'Bearer ' + token;
+    function apiFetch(url, opts = {}) {
+      const headers = Object.assign({ 'Accept': 'application/json' }, opts.headers || {});
+      const token = getToken();
+      if (token) headers['Authorization'] = 'Bearer ' + token;
 
-    return fetch(url, Object.assign({}, opts, { headers }));
-  }
-
-  async function apiJson(url, opts = {}) {
-    const r = await apiFetch(url, opts);
-    const text = await r.text();
-
-    let data = null;
-    try {
-      data = text ? JSON.parse(text) : null;
-    } catch {
-      // jei serveris netyčia grąžino HTML
-      data = { message: text || 'Nežinomas atsakymas' };
+      return fetch(url, Object.assign({}, opts, { headers }));
     }
 
-    if (!r.ok) {
-      // meta klaidą su statusu ir json body
-      throw { status: r.status, data };
-    }
+    async function apiJson(url, opts = {}) {
+      const r = await apiFetch(url, opts);
+      const text = await r.text();
 
-    return data;
-  }
-
-  function extractErrorMessage(err) {
-    const data = err?.data;
-    if (!data) return 'Įvyko klaida.';
-
-    // Laravel validation: { message, errors: {field:[msg]} }
-    if (data.errors && typeof data.errors === 'object') {
-      const firstKey = Object.keys(data.errors)[0];
-      if (firstKey && Array.isArray(data.errors[firstKey]) && data.errors[firstKey][0]) {
-        return data.errors[firstKey][0];
+      let data = null;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        // jei serveris netyčia grąžino HTML
+        data = { message: text || 'Nežinomas atsakymas' };
       }
+
+      if (!r.ok) {
+        // meta klaidą su statusu ir json body
+        throw { status: r.status, data };
+      }
+
+      return data;
     }
 
-    if (data.message) return data.message;
-    return 'Įvyko klaida.';
-  }
+    function extractErrorMessage(err) {
+      const data = err?.data;
+      if (!data) return 'Įvyko klaida.';
 
-  const API = {
-    home: () => apiJson('/api/home'),
-    games: (params) => {
-      const u = new URL(location.origin + '/api/games');
-      Object.entries(params || {}).forEach(([k, v]) => {
-        if (v !== '' && v != null) u.searchParams.set(k, String(v));
-      });
-      return apiJson(u.toString());
-    },
-    game: (slug) => apiJson('/api/games/' + encodeURIComponent(slug)),
+      // Laravel validation: { message, errors: {field:[msg]} }
+      if (data.errors && typeof data.errors === 'object') {
+        const firstKey = Object.keys(data.errors)[0];
+        if (firstKey && Array.isArray(data.errors[firstKey]) && data.errors[firstKey][0]) {
+          return data.errors[firstKey][0];
+        }
+      }
 
-    me: () => apiJson('/api/me'),
-    login: (payload) => apiJson('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }),
-    register: (payload) => apiJson('/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }),
-    logout: () => apiJson('/api/auth/logout', { method: 'POST' }),
-  };
+      if (data.message) return data.message;
+      return 'Įvyko klaida.';
+    }
 
-  const el = (id) => document.getElementById(id);
+    const API = {
+      home: () => apiJson('/api/home'),
+      games: (params) => {
+        const u = new URL(location.origin + '/api/games');
+        Object.entries(params || {}).forEach(([k, v]) => {
+          if (v !== '' && v != null) u.searchParams.set(k, String(v));
+        });
+        return apiJson(u.toString());
+      },
+      game: (slug) => apiJson('/api/games/' + encodeURIComponent(slug)),
 
-  function imgSrc(img) {
-    if (!img) return '';
-    if (img.startsWith('http://') || img.startsWith('https://')) return img;
-    if (img.startsWith('/')) return img;
-    return '/' + img;
-  }
+      me: () => apiJson('/api/me'),
+      login: (payload) => apiJson('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }),
+      register: (payload) => apiJson('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }),
+      logout: () => apiJson('/api/auth/logout', { method: 'POST' }),
 
-  function escapeHtml(str) {
-    return (str ?? '').toString().replace(/[&<>"']/g, m => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[m]));
-  }
+      cart: () => apiJson('/api/cart'),
+      cartAdd: (game_id, quantity = 1) => apiJson('/api/cart/items', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ game_id, quantity }),
+      }),
+      cartUpdate: (game_id, quantity) => apiJson('/api/cart/items/' + encodeURIComponent(game_id), {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ quantity }),
+      }),
+      cartRemove: (game_id) => apiJson('/api/cart/items/' + encodeURIComponent(game_id), {
+        method: 'DELETE',
+      }),
+      cartClear: () => apiJson('/api/cart', { method: 'DELETE' }),
 
-  function showView(name) {
-    el('view-home')?.classList.toggle('hidden', name !== 'home');
-    el('view-games')?.classList.toggle('hidden', name !== 'games');
-    el('view-game')?.classList.toggle('hidden', name !== 'game');
-    el('view-cart')?.classList.toggle('hidden', name !== 'cart');
-    el('view-account')?.classList.toggle('hidden', name !== 'account');
-  }
+    };
 
-  function linkTo(href) {
-    history.pushState({}, '', href);
-    router();
-  }
+    const el = (id) => document.getElementById(id);
 
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[data-link]');
-    if (!a) return;
-    e.preventDefault();
-    linkTo(a.getAttribute('href'));
-  });
+    function imgSrc(img) {
+      if (!img) return '';
+      if (img.startsWith('http://') || img.startsWith('https://')) return img;
+      if (img.startsWith('/')) return img;
+      return '/' + img;
+    }
 
-  // -------------------------
-  // Search -> /games?q=...
-  // -------------------------
-  el('searchForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const q = el('default-search')?.value.trim() || '';
-    const u = new URL(location.origin + '/games');
-    if (q) u.searchParams.set('q', q);
-    linkTo(u.pathname + u.search);
-  });
+    function escapeHtml(str) {
+      return (str ?? '').toString().replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
+    }
 
-  // XML export
-  el('btn-export-xml')?.addEventListener('click', () => {
-    const q = el('default-search')?.value.trim() || '';
-    const u = new URL(location.origin + '/api/exports/games.xml');
-    if (q) u.searchParams.set('q', q);
-    window.location.href = u.toString();
-  });
+    function showView(name) {
+      el('view-home')?.classList.toggle('hidden', name !== 'home');
+      el('view-games')?.classList.toggle('hidden', name !== 'games');
+      el('view-game')?.classList.toggle('hidden', name !== 'game');
+      el('view-cart')?.classList.toggle('hidden', name !== 'cart');
+      el('view-account')?.classList.toggle('hidden', name !== 'account');
+    }
 
-  // -------------------------
-  // Kortelės render
-  // -------------------------
-  function cardHtml(g, href) {
-    const platforms = (g.platforms && g.platforms.length)
-      ? g.platforms.map(p => p.name).join(', ')
-      : (g.platform ?? 'Nenurodyta');
+    function linkTo(href) {
+      history.pushState({}, '', href);
+      router();
+    }
 
-    const name = escapeHtml(g.name);
-    const price = escapeHtml(g.price);
-    const img = imgSrc(g.image);
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-link]');
+      if (!a) return;
+      e.preventDefault();
+      linkTo(a.getAttribute('href'));
+    });
 
-    return `
+    // -------------------------
+    // Search -> /games?q=...
+    // -------------------------
+    el('searchForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = el('default-search')?.value.trim() || '';
+      const u = new URL(location.origin + '/games');
+      if (q) u.searchParams.set('q', q);
+      linkTo(u.pathname + u.search);
+    });
+
+    // XML export
+    el('btn-export-xml')?.addEventListener('click', () => {
+      const q = el('default-search')?.value.trim() || '';
+      const u = new URL(location.origin + '/api/exports/games.xml');
+      if (q) u.searchParams.set('q', q);
+      window.location.href = u.toString();
+    });
+
+    // -------------------------
+    // Kortelės render
+    // -------------------------
+    function cardHtml(g, href) {
+      const platforms = (g.platforms && g.platforms.length)
+        ? g.platforms.map(p => p.name).join(', ')
+        : (g.platform ?? 'Nenurodyta');
+
+      const name = escapeHtml(g.name);
+      const price = escapeHtml(g.price);
+      const img = imgSrc(g.image);
+
+      return `
       <a href="${href}" data-link class="bg-[#1a1a1a] border border-[#333] rounded-lg overflow-hidden card-hover block hover:shadow-lg transition transform hover:-translate-y-1">
         <div class="w-full h-64 bg-black flex items-center justify-center">
           ${img ? `<img src="${img}" alt="${name}" class="max-h-full max-w-full object-contain" loading="lazy" />` : ``}
@@ -509,129 +583,156 @@
         </div>
       </a>
     `;
-  }
-
-  // -------------------------
-  // Home
-  // -------------------------
-  async function renderHome() {
-    showView('home');
-
-    const newGrid = el('home-new-grid');
-    const popGrid = el('home-pop-grid');
-    if (newGrid) newGrid.innerHTML = '';
-    if (popGrid) popGrid.innerHTML = '';
-
-    const data = await API.home();
-    const newGames = data?.new_games || [];
-    const popGames = data?.popular_games || [];
-
-    if (newGrid) newGrid.innerHTML = newGames.map(g => cardHtml(g, '/' + g.slug)).join('');
-    if (popGrid) popGrid.innerHTML = popGames.map(g => cardHtml(g, '/' + g.slug)).join('');
-  }
-
-  // -------------------------
-  // Games list
-  // -------------------------
-  let currentPage = 1;
-  let lastPage = 1;
-
-  async function renderGames() {
-    showView('games');
-
-    const url = new URL(location.href);
-    const q = url.searchParams.get('q') || '';
-    const page = parseInt(url.searchParams.get('page') || '1', 10);
-
-    if (el('default-search')) el('default-search').value = q;
-
-    const res = await API.games({ q, per_page: 20, page });
-
-    const items = res?.data || res || [];
-    currentPage = res?.current_page || page;
-    lastPage = res?.last_page || 1;
-
-    if (el('games-grid')) el('games-grid').innerHTML = items.map(g => cardHtml(g, '/' + g.slug)).join('');
-    if (el('games-page')) el('games-page').textContent = `Puslapis ${currentPage} / ${lastPage}`;
-
-    const total = res?.total != null ? res.total : items.length;
-    if (el('games-meta')) el('games-meta').textContent = `Rasta: ${total}`;
-
-    el('btn-prev')?.classList.toggle('btn-disabled', currentPage <= 1);
-    el('btn-next')?.classList.toggle('btn-disabled', currentPage >= lastPage);
-  }
-
-  el('btn-prev')?.addEventListener('click', () => {
-    if (currentPage <= 1) return;
-    const u = new URL(location.href);
-    u.searchParams.set('page', String(currentPage - 1));
-    linkTo(u.pathname + u.search);
-  });
-
-  el('btn-next')?.addEventListener('click', () => {
-    if (currentPage >= lastPage) return;
-    const u = new URL(location.href);
-    u.searchParams.set('page', String(currentPage + 1));
-    linkTo(u.pathname + u.search);
-  });
-
-  // -------------------------
-  // Game detail
-  // -------------------------
-  let currentGame = null;
-
-  async function renderGame(slug) {
-    showView('game');
-
-    const g = await API.game(slug);
-    currentGame = g;
-
-    if (el('game-title')) el('game-title').textContent = g?.name || '';
-    if (el('game-price')) el('game-price').textContent = (g?.price ?? '') + ' €';
-
-    const platforms = (g?.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : 'Nenurodyta';
-    const genres = (g?.genres && g.genres.length) ? g.genres.map(x => x.name).join(', ') : 'Nenurodyta';
-
-    if (el('game-platforms')) el('game-platforms').textContent = platforms;
-    if (el('game-genres')) el('game-genres').textContent = genres;
-
-    const img = imgSrc(g?.image || '');
-    const imgEl = el('game-img');
-    if (imgEl) {
-      if (img) {
-        imgEl.src = img;
-        imgEl.alt = g?.name || '';
-        imgEl.classList.remove('hidden');
-      } else {
-        imgEl.classList.add('hidden');
-      }
     }
 
-    const desc = g?.description ? g.description : 'Aprašymo nėra.';
-    if (el('game-desc')) el('game-desc').innerHTML = `<p>${escapeHtml(desc)}</p>`;
-  }
+    // -------------------------
+    // Home
+    // -------------------------
+    async function renderHome() {
+      showView('home');
 
+      const newGrid = el('home-new-grid');
+      const popGrid = el('home-pop-grid');
+      if (newGrid) newGrid.innerHTML = '';
+      if (popGrid) popGrid.innerHTML = '';
+
+      const data = await API.home();
+      const newGames = data?.new_games || [];
+      const popGames = data?.popular_games || [];
+
+      if (newGrid) newGrid.innerHTML = newGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+      if (popGrid) popGrid.innerHTML = popGames.map(g => cardHtml(g, '/' + g.slug)).join('');
+    }
+
+    // -------------------------
+    // Games list
+    // -------------------------
+    let currentPage = 1;
+    let lastPage = 1;
+
+    async function renderGames() {
+      showView('games');
+
+      const url = new URL(location.href);
+      const q = url.searchParams.get('q') || '';
+      const page = parseInt(url.searchParams.get('page') || '1', 10);
+
+      if (el('default-search')) el('default-search').value = q;
+
+      const res = await API.games({ q, per_page: 20, page });
+
+      const items = res?.data || res || [];
+      currentPage = res?.current_page || page;
+      lastPage = res?.last_page || 1;
+
+      if (el('games-grid')) el('games-grid').innerHTML = items.map(g => cardHtml(g, '/' + g.slug)).join('');
+      if (el('games-page')) el('games-page').textContent = `Puslapis ${currentPage} / ${lastPage}`;
+
+      const total = res?.total != null ? res.total : items.length;
+      if (el('games-meta')) el('games-meta').textContent = `Rasta: ${total}`;
+
+      el('btn-prev')?.classList.toggle('btn-disabled', currentPage <= 1);
+      el('btn-next')?.classList.toggle('btn-disabled', currentPage >= lastPage);
+    }
+
+    el('btn-prev')?.addEventListener('click', () => {
+      if (currentPage <= 1) return;
+      const u = new URL(location.href);
+      u.searchParams.set('page', String(currentPage - 1));
+      linkTo(u.pathname + u.search);
+    });
+
+    el('btn-next')?.addEventListener('click', () => {
+      if (currentPage >= lastPage) return;
+      const u = new URL(location.href);
+      u.searchParams.set('page', String(currentPage + 1));
+      linkTo(u.pathname + u.search);
+    });
+
+    // -------------------------
+    // Game detail
+    // -------------------------
+    let currentGame = null;
+
+    async function renderGame(slug) {
+      showView('game');
+
+      const g = await API.game(slug);
+      currentGame = g;
+
+      if (el('game-title')) el('game-title').textContent = g?.name || '';
+      if (el('game-price')) el('game-price').textContent = (g?.price ?? '') + ' €';
+
+      const platforms = (g?.platforms && g.platforms.length) ? g.platforms.map(p => p.name).join(', ') : 'Nenurodyta';
+      const genres = (g?.genres && g.genres.length) ? g.genres.map(x => x.name).join(', ') : 'Nenurodyta';
+
+      if (el('game-platforms')) el('game-platforms').textContent = platforms;
+      if (el('game-genres')) el('game-genres').textContent = genres;
+
+      const img = imgSrc(g?.image || '');
+      const imgEl = el('game-img');
+      if (imgEl) {
+        if (img) {
+          imgEl.src = img;
+          imgEl.alt = g?.name || '';
+          imgEl.classList.remove('hidden');
+        } else {
+          imgEl.classList.add('hidden');
+        }
+      }
+
+      const desc = g?.description ? g.description : 'Aprašymo nėra.';
+      if (el('game-desc')) el('game-desc').innerHTML = `<p>${escapeHtml(desc)}</p>`;
+    }
+
+      // -------------------------
+  // Cart (localStorage + API)
   // -------------------------
-  // Cart (localStorage)
-  // -------------------------
-  function getCart() {
+  function hasAuth() { return !!getToken(); }
+
+  // Guest cart (localStorage)
+  function getCartLocal() {
     try { return JSON.parse(localStorage.getItem('cart') || '[]'); }
     catch { return []; }
   }
 
-  function setCart(items) {
+  function setCartLocal(items) {
     localStorage.setItem('cart', JSON.stringify(items || []));
     updateCartBadge();
   }
 
-  function cartCount() {
-    return getCart().reduce((sum, it) => sum + (it.qty || 0), 0);
+  function cartCountLocal() {
+    return getCartLocal().reduce((sum, it) => sum + (it.qty || 0), 0);
   }
 
-  function updateCartBadge() {
+  function cartTotalLocal() {
+    return getCartLocal().reduce((sum, it) => sum + (Number(it.price || 0) * Number(it.qty || 0)), 0);
+  }
+
+  async function updateCartBadge() {
     const badge = el('cart-badge');
     if (!badge) return;
-    const count = cartCount();
+
+    // jei prisijungęs – skaičiuojam iš API
+    if (hasAuth()) {
+      try {
+        const res = await API.cart();
+        const count = Number(res?.count || 0);
+
+        if (count > 0) {
+          badge.textContent = String(count);
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+        return;
+      } catch {
+        // jei API nepavyko – krentam į local fallback
+      }
+    }
+
+    // guest – localStorage
+    const count = cartCountLocal();
     if (count > 0) {
       badge.textContent = String(count);
       badge.classList.remove('hidden');
@@ -640,48 +741,65 @@
     }
   }
 
-  function addToCart(game) {
+  async function addToCart(game) {
     if (!game || !game.id) return;
 
-    const cart = getCart();
+    if (hasAuth()) {
+      await API.cartAdd(game.id, 1);
+      await updateCartBadge();
+      return;
+    }
+
+    const cart = getCartLocal();
     const idx = cart.findIndex(x => x.id === game.id);
 
     if (idx >= 0) cart[idx].qty = (cart[idx].qty || 1) + 1;
     else cart.push({ id: game.id, slug: game.slug, name: game.name, price: Number(game.price || 0), image: game.image || '', qty: 1 });
 
-    setCart(cart);
+    setCartLocal(cart);
   }
 
-  function removeFromCart(id) {
-    setCart(getCart().filter(x => x.id !== id));
+  function removeFromCartLocal(id) {
+    setCartLocal(getCartLocal().filter(x => x.id !== id));
   }
 
-  function changeQty(id, qty) {
-    const cart = getCart();
+  function changeQtyLocal(id, qty) {
+    const cart = getCartLocal();
     const idx = cart.findIndex(x => x.id === id);
     if (idx < 0) return;
     cart[idx].qty = Math.max(1, qty);
-    setCart(cart);
+    setCartLocal(cart);
   }
 
-  function cartTotal() {
-    return getCart().reduce((sum, it) => sum + (Number(it.price || 0) * Number(it.qty || 0)), 0);
-  }
-
-  el('btn-add-to-cart')?.addEventListener('click', () => {
-    addToCart(currentGame);
-    linkTo('/cart');
+  el('btn-add-to-cart')?.addEventListener('click', async () => {
+    try {
+      await addToCart(currentGame);
+      linkTo('/cart');
+    } catch (err) {
+      alert(extractErrorMessage(err));
+    }
   });
 
-  el('btn-cart-clear')?.addEventListener('click', () => {
-    setCart([]);
+  el('btn-cart-clear')?.addEventListener('click', async () => {
+    if (hasAuth()) {
+      try {
+        await API.cartClear();
+        await updateCartBadge();
+        await renderCart();
+      } catch (err) {
+        alert(extractErrorMessage(err));
+      }
+      return;
+    }
+
+    setCartLocal([]);
     renderCart();
   });
 
-  function renderCart() {
+  function renderCartLocal() {
     showView('cart');
 
-    const cart = getCart();
+    const cart = getCartLocal();
     const list = el('cart-list');
 
     if (!cart.length) {
@@ -727,158 +845,274 @@
 
       list.querySelectorAll('[data-remove]').forEach(btn => {
         btn.addEventListener('click', () => {
-          removeFromCart(Number(btn.getAttribute('data-remove')));
-          renderCart();
+          removeFromCartLocal(Number(btn.getAttribute('data-remove')));
+          renderCartLocal();
         });
       });
 
       list.querySelectorAll('[data-qty-inc]').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = Number(btn.getAttribute('data-qty-inc'));
-          const item = getCart().find(x => x.id === id);
-          changeQty(id, (item?.qty || 1) + 1);
-          renderCart();
+          const item = getCartLocal().find(x => x.id === id);
+          changeQtyLocal(id, (item?.qty || 1) + 1);
+          renderCartLocal();
         });
       });
 
       list.querySelectorAll('[data-qty-dec]').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = Number(btn.getAttribute('data-qty-dec'));
-          const item = getCart().find(x => x.id === id);
-          changeQty(id, Math.max(1, (item?.qty || 1) - 1));
-          renderCart();
+          const item = getCartLocal().find(x => x.id === id);
+          changeQtyLocal(id, Math.max(1, (item?.qty || 1) - 1));
+          renderCartLocal();
         });
       });
     }
 
     el('cart-summary')?.classList.remove('hidden');
-    if (el('cart-total')) el('cart-total').textContent = cartTotal().toFixed(2) + ' €';
+    if (el('cart-total')) el('cart-total').textContent = cartTotalLocal().toFixed(2) + ' €';
   }
 
-  // -------------------------
-  // Account
-  // -------------------------
-  function setAuthToken(token) {
-    if (token) localStorage.setItem('auth_token', token);
-    else localStorage.removeItem('auth_token');
-  }
+  async function renderCartApi() {
+    showView('cart');
 
-  async function renderAccount() {
-    showView('account');
-
-    const token = getToken();
-    const authNeeded = el('account-auth-needed');
-    const loggedIn = el('account-logged-in');
-
-    if (!token) {
-      authNeeded?.classList.remove('hidden');
-      loggedIn?.classList.add('hidden');
-      return;
-    }
+    const list = el('cart-list');
 
     try {
-      const me = await API.me();
+      const cart = await API.cart();
+      const items = cart?.items || [];
 
-      authNeeded?.classList.add('hidden');
-      loggedIn?.classList.remove('hidden');
+      if (!items.length) {
+        el('cart-empty')?.classList.remove('hidden');
+        if (list) list.innerHTML = '';
+        el('cart-summary')?.classList.add('hidden');
+        await updateCartBadge();
+        return;
+      }
 
-      if (el('meName')) el('meName').textContent = me?.name || '(be vardo)';
-      if (el('meEmail')) el('meEmail').textContent = me?.email || '';
+      el('cart-empty')?.classList.add('hidden');
+
+      if (list) {
+        list.innerHTML = items.map(it => {
+          const slug = it?.game?.slug || '';
+          const img = imgSrc(it?.game?.image || '');
+          const subtotal = Number(it.line_total || 0).toFixed(2);
+
+          return `
+            <div class="bg-[#181818] border border-[#2c2c2c] rounded-lg p-4 flex gap-4 items-center">
+              <div class="w-20 h-20 bg-black rounded flex items-center justify-center overflow-hidden">
+                ${img ? `<img src="${img}" alt="${escapeHtml(it.name)}" class="max-h-full max-w-full object-contain" />` : ``}
+              </div>
+
+              <div class="flex-1">
+                ${slug ? `<a href="/${escapeHtml(slug)}" data-link class="font-bold text-[#00ffff] hover:text-cyan-300 transition">${escapeHtml(it.name)}</a>` : `<div class="font-bold text-[#00ffff]">${escapeHtml(it.name)}</div>`}
+                <div class="text-gray-300 text-sm mt-1">Kaina: <span class="text-[#00ffff] font-semibold">${Number(it.price || 0).toFixed(2)} €</span></div>
+                <div class="text-gray-300 text-sm mt-1">Suma: <span class="text-[#00ffff] font-semibold">${subtotal} €</span></div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition" data-qty-dec="${it.game_id}">-</button>
+                <div class="w-10 text-center">${it.quantity}</div>
+                <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-cyan-400 transition" data-qty-inc="${it.game_id}">+</button>
+              </div>
+
+              <button class="px-3 py-2 bg-[#0f0f0f] border border-[#2c2c2c] rounded hover:border-red-400 transition text-red-300" data-remove="${it.game_id}">
+                Pašalinti
+              </button>
+            </div>
+          `;
+        }).join('');
+
+        list.querySelectorAll('[data-remove]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const gameId = Number(btn.getAttribute('data-remove'));
+            try {
+              await API.cartRemove(gameId);
+              await renderCartApi();
+              await updateCartBadge();
+            } catch (err) {
+              alert(extractErrorMessage(err));
+            }
+          });
+        });
+
+        list.querySelectorAll('[data-qty-inc]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const gameId = Number(btn.getAttribute('data-qty-inc'));
+            const cartNow = await API.cart();
+            const item = (cartNow.items || []).find(x => Number(x.game_id) === gameId);
+            const nextQty = Math.min(99, Number(item?.quantity || 1) + 1);
+
+            try {
+              await API.cartUpdate(gameId, nextQty);
+              await renderCartApi();
+              await updateCartBadge();
+            } catch (err) {
+              alert(extractErrorMessage(err));
+            }
+          });
+        });
+
+        list.querySelectorAll('[data-qty-dec]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const gameId = Number(btn.getAttribute('data-qty-dec'));
+            const cartNow = await API.cart();
+            const item = (cartNow.items || []).find(x => Number(x.game_id) === gameId);
+            const nextQty = Math.max(1, Number(item?.quantity || 1) - 1);
+
+            try {
+              await API.cartUpdate(gameId, nextQty);
+              await renderCartApi();
+              await updateCartBadge();
+            } catch (err) {
+              alert(extractErrorMessage(err));
+            }
+          });
+        });
+      }
+
+      el('cart-summary')?.classList.remove('hidden');
+      if (el('cart-total')) el('cart-total').textContent = Number(cart?.total || 0).toFixed(2) + ' €';
+
+      await updateCartBadge();
+    } catch (err) {
+      if (list) list.innerHTML = `<div class="mt-6 text-red-300">Klaida: ${escapeHtml(extractErrorMessage(err))}</div>`;
+      el('cart-summary')?.classList.add('hidden');
+    }
+  }
+
+  async function renderCart() {
+    if (hasAuth()) return renderCartApi();
+    return renderCartLocal();
+  }
+
+    // -------------------------
+    // Account
+    // -------------------------
+    function setAuthToken(token) {
+      if (token) localStorage.setItem('auth_token', token);
+      else localStorage.removeItem('auth_token');
+    }
+
+    async function renderAccount() {
+      showView('account');
+
+      const token = getToken();
+      const authNeeded = el('account-auth-needed');
+      const loggedIn = el('account-logged-in');
+
+      if (!token) {
+        authNeeded?.classList.remove('hidden');
+        loggedIn?.classList.add('hidden');
+        return;
+      }
+
+      try {
+        const me = await API.me();
+
+        authNeeded?.classList.add('hidden');
+        loggedIn?.classList.remove('hidden');
+
+        if (el('meName')) el('meName').textContent = me?.name || '(be vardo)';
+        if (el('meEmail')) el('meEmail').textContent = me?.email || '';
+        if (el('meMsg')) el('meMsg').textContent = '';
+      } catch (err) {
+        setAuthToken('');
+        authNeeded?.classList.remove('hidden');
+        loggedIn?.classList.add('hidden');
+      }
+    }
+
+    el('loginForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (el('loginMsg')) el('loginMsg').textContent = '';
+
+      const email = el('loginEmail')?.value.trim() || '';
+      const password = el('loginPassword')?.value || '';
+
+      try {
+        const res = await API.login({ email, password });
+        const token = res?.token || res?.access_token || '';
+
+        if (!token) {
+          if (el('loginMsg')) el('loginMsg').textContent = res?.message || 'Prisijungimas nepavyko.';
+          return;
+        }
+
+        setAuthToken(token);
+        await updateCartBadge();
+        linkTo('/account');
+      } catch (err) {
+        if (el('loginMsg')) el('loginMsg').textContent = extractErrorMessage(err);
+      }
+    });
+
+    el('registerForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (el('registerMsg')) el('registerMsg').textContent = '';
+
+      const name = el('regName')?.value.trim() || '';
+      const email = el('regEmail')?.value.trim() || '';
+      const password = el('regPassword')?.value || '';
+
+      const confirmEl = el('regPasswordConfirm');
+      const password_confirmation = confirmEl ? (confirmEl.value || '') : '';
+
+      try {
+        const res = await API.register({ name, email, password, password_confirmation });
+
+        const token = res?.token || res?.access_token || '';
+        if (!token) {
+          if (el('registerMsg')) el('registerMsg').textContent = res?.message || 'Registracija nepavyko.';
+          return;
+        }
+
+        setAuthToken(token);
+        await updateCartBadge();
+      } catch (err) {
+        if (el('registerMsg')) el('registerMsg').textContent = extractErrorMessage(err);
+      }
+    });
+
+    el('btn-logout')?.addEventListener('click', async () => {
       if (el('meMsg')) el('meMsg').textContent = '';
-    } catch (err) {
+
+      try { await API.logout(); } catch { }
       setAuthToken('');
-      authNeeded?.classList.remove('hidden');
-      loggedIn?.classList.add('hidden');
-    }
-  }
+      await updateCartBadge();
+      linkTo('/account');
+    });
 
-  el('loginForm')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (el('loginMsg')) el('loginMsg').textContent = '';
+    // -------------------------
+    // Router
+    // -------------------------
+    function router() {
+      const path = location.pathname;
+      const reserved = new Set(['', 'games', 'api', 'up', 'cart', 'account']);
 
-    const email = el('loginEmail')?.value.trim() || '';
-    const password = el('loginPassword')?.value || '';
+      if (path === '/' || path === '') return renderHome();
+      if (path === '/games') return renderGames();
+      if (path === '/cart') return renderCart();
+      if (path === '/account') return renderAccount();
 
-    try {
-      const res = await API.login({ email, password });
-      const token = res?.token || res?.access_token || '';
-
-      if (!token) {
-        if (el('loginMsg')) el('loginMsg').textContent = res?.message || 'Prisijungimas nepavyko.';
-        return;
+      if (path.startsWith('/games/')) {
+        const slug = path.split('/').filter(Boolean)[1];
+        if (slug) return renderGame(slug);
       }
 
-      setAuthToken(token);
-      linkTo('/account');
-    } catch (err) {
-      if (el('loginMsg')) el('loginMsg').textContent = extractErrorMessage(err);
-    }
-  });
+      const slug = path.replace('/', '');
+      if (slug && !reserved.has(slug)) return renderGame(slug);
 
-  el('registerForm')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (el('registerMsg')) el('registerMsg').textContent = '';
-
-    const name = el('regName')?.value.trim() || '';
-    const email = el('regEmail')?.value.trim() || '';
-    const password = el('regPassword')?.value || '';
-
-    const confirmEl = el('regPasswordConfirm');
-    const password_confirmation = confirmEl ? (confirmEl.value || '') : '';
-
-    try {
-      const res = await API.register({ name, email, password, password_confirmation });
-
-      const token = res?.token || res?.access_token || '';
-      if (!token) {
-        if (el('registerMsg')) el('registerMsg').textContent = res?.message || 'Registracija nepavyko.';
-        return;
-      }
-
-      setAuthToken(token);
-      linkTo('/account');
-    } catch (err) {
-      if (el('registerMsg')) el('registerMsg').textContent = extractErrorMessage(err);
-    }
-  });
-
-  el('btn-logout')?.addEventListener('click', async () => {
-    if (el('meMsg')) el('meMsg').textContent = '';
-
-    try { await API.logout(); } catch {}
-    setAuthToken('');
-    linkTo('/account');
-  });
-
-  // -------------------------
-  // Router
-  // -------------------------
-  function router() {
-    const path = location.pathname;
-    const reserved = new Set(['', 'games', 'api', 'up', 'cart', 'account']);
-
-    if (path === '/' || path === '') return renderHome();
-    if (path === '/games') return renderGames();
-    if (path === '/cart') return renderCart();
-    if (path === '/account') return renderAccount();
-
-    if (path.startsWith('/games/')) {
-      const slug = path.split('/').filter(Boolean)[1];
-      if (slug) return renderGame(slug);
+      return renderHome();
     }
 
-    const slug = path.replace('/', '');
-    if (slug && !reserved.has(slug)) return renderGame(slug);
+    window.addEventListener('popstate', router);
 
-    return renderHome();
-  }
-
-  window.addEventListener('popstate', router);
-
-  // init
-  updateCartBadge();
-  router();
-</script>
+    // init
+    updateCartBadge();
+    router();
+  </script>
 
 </body>
+
 </html>

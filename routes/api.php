@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\GameController;
 use App\Http\Controllers\Api\ExportController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CartController;
+
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -25,4 +27,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/games', [GameController::class, 'store'])->middleware('can:manage-games');
     Route::put('/games/{game:slug}', [GameController::class, 'update'])->middleware('can:manage-games');
     Route::delete('/games/{game:slug}', [GameController::class, 'destroy'])->middleware('can:manage-games');
+
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/items', [CartController::class, 'store']);
+    Route::patch('/cart/items/{game}', [CartController::class, 'update']);
+    Route::delete('/cart/items/{game}', [CartController::class, 'destroy']);
+    Route::delete('/cart', [CartController::class, 'clear']);
 });

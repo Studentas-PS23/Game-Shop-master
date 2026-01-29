@@ -4,4 +4,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{any}', function () {
     return response()->file(public_path('spa/index.html'));
-})->where('any', '.*');
+})->where('any', '^(?!api(?:/|$)).*');
