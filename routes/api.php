@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\GameController;
 use App\Http\Controllers\Api\ExportController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
-
+use App\Http\Controllers\Api\CheckoutController;
+use App\Http\Controllers\Api\PurchasesController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -33,4 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/cart/items/{game}', [CartController::class, 'update']);
     Route::delete('/cart/items/{game}', [CartController::class, 'destroy']);
     Route::delete('/cart', [CartController::class, 'clear']);
+
+    Route::post('/checkout', [CheckoutController::class, 'store']);
+    Route::get('/purchases', [PurchasesController::class, 'index']);
 });

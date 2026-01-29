@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PurchasedProduct extends Model
 {
-    protected $fillable = ['user_id', 'game_id', 'pdf_path', 'name', 'price'];
+    protected $fillable = ['user_id', 'game_id', 'name', 'price', 'quantity', 'purchased_at'];
 
-    public function game()
-    {
-        return $this->belongsTo(Game::class, 'game_id');
-    }
+    protected $casts = [
+        'price' => 'decimal:2',
+        'quantity' => 'integer',
+        'purchased_at' => 'datetime',
+    ];
 }

@@ -302,8 +302,8 @@
             <span id="cart-total" class="text-[#00ffff]"></span>
           </div>
 
-          <button class="mt-6 w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
-            Apmokėti (demo)
+          <button id="btn-checkout" class="mt-6 w-full py-3 bg-[#00ffff] text-black font-bold rounded hover:bg-cyan-400 transition">
+            Apmokėti 
           </button>
         </div>
       </div>
@@ -503,6 +503,7 @@
       }),
       cartClear: () => apiJson('/api/cart', { method: 'DELETE' }),
 
+      checkout: () => apiJson('/api/checkout', { method: 'POST' }),
     };
 
     const el = (id) => document.getElementById(id);
@@ -796,6 +797,16 @@
     renderCart();
   });
 
+  el('btn-checkout')?.addEventListener('click', async () => {
+    try {
+      await API.checkout();
+      await renderCart();
+      alert('Pirkimas užfiksuotas');
+    } catch (err) {
+      alert(extractErrorMessage(err));
+    }
+  });
+  
   function renderCartLocal() {
     showView('cart');
 
