@@ -5,8 +5,10 @@ use App\Models\User;
 use Laravel\Sanctum\Sanctum;
 
 test('guest cannot access cart', function () {
-    $this->getJson('/api/cart')->assertStatus(401);
+    getJson('/api/cart')->assertStatus(401);
 });
+
+
 
 test('user can add item and see it in cart', function () {
     $user = User::factory()->create();
@@ -44,3 +46,4 @@ test('user cannot remove item that is not in their cart', function () {
 
     $this->deleteJson('/api/cart/items/' . $game->id)->assertStatus(404);
 });
+
